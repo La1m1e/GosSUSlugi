@@ -7,31 +7,44 @@
     body, html {
       margin: 0;
       height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: white;
+      font-family: sans-serif;
     }
+
+    #logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 40px;
+    }
+
     #overlay {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 10;
       background: white;
       padding: 20px 40px;
       border-radius: 10px;
-      font-family: sans-serif;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       user-select: none;
     }
+
     video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
+  <img id="logo" src="logo.png" alt="Logo" />
   <div id="overlay">Я не робот</div>
   <video id="video" src="SampleVideo_1280x720_1mb.mp4" playsinline></video>
 
