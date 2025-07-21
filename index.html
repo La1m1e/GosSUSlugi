@@ -2,14 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Video Autoplay</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>I'm not a robot</title>
   <style>
-    body, html { margin: 0; height: 100%; background: black; }
-    video { width: 100%; height: 100%; object-fit: cover; }
+    body, html {
+      margin: 0;
+      height: 100%;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #overlay {
+      position: absolute;
+      z-index: 10;
+      background: white;
+      padding: 20px 40px;
+      border-radius: 10px;
+      font-family: sans-serif;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      user-select: none;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <video src="SampleVideo_1280x720_1mb.mp4" autoplay playsinline></video>
+  <div id="overlay">Я не робот</div>
+  <video id="video" src="SampleVideo_1280x720_1mb.mp4" playsinline muted></video>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const video = document.getElementById('video');
+
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    });
+  </script>
 </body>
 </html>
