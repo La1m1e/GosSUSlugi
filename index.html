@@ -5,6 +5,10 @@
   <title>Перечень зарегистрированных персональных страниц и каналов</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
+    :root {
+      --topbar-height: 60px; /* Настраиваемая высота */
+    }
+
     body, html {
       margin: 0;
       height: 100%;
@@ -15,8 +19,10 @@
     #logo {
       position: absolute;
       top: 20px;
-      left: 60px;
-      height: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: var(--topbar-height);
+      user-select: none;
     }
 
     #overlay {
@@ -45,7 +51,7 @@
   </style>
 </head>
 <body>
-  <img id="logo" src="logo.png" alt="Logo" />
+  <img id="logo" src="topbar.png" alt="Topbar" />
   <div id="overlay">Я не робот</div>
   <video id="video" src="rick.mp4" playsinline></video>
 
